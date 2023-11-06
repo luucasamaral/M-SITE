@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2023-02-13T18:11:11Z</date>
+    <groups>
+        <group>
+            <uuid>c8dee3ca3b724a248df04229e695e5db</uuid>
+            <name>NOTO Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <uuid>99d87e2a364249ca9757e32d7c33502a</uuid>
+            <template>NOTO - MTR</template>
+            <name>NOTO - MTR</name>
+            <description>Templates para monitorar roteamento pelo comando mtr
+
+Desenvolvido por NOTO</description>
+            <groups>
+                <group>
+                    <name>NOTO Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>618d80b81f4d4a9ab0e38e00266d1591</uuid>
+                    <name>Total de saltos</name>
+                    <type>EXTERNAL</type>
+                    <key>zbx_mtr.sh[-total,{HOST.HOST},1]</key>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>ROTA</value>
+                        </tag>
+                    </tags>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <uuid>5f663258b34c430390433e0daf5d4ec9</uuid>
+                    <name>Descoberta de rotas</name>
+                    <type>EXTERNAL</type>
+                    <key>zbx_mtr.sh[-discovery,{HOST.HOST}]</key>
+                    <delay>30s</delay>
+                    <lifetime>0</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>3b2eb68f8c76406494e18f3158833d73</uuid>
+                            <name>Rota {#ROTA} (ASN)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-asn,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>9131a169de424624ab48d30f8b6219df</uuid>
+                            <name>Rota {#ROTA} (AVG)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-avg,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>30d</trends>
+                            <value_type>FLOAT</value_type>
+                            <units>ms</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>4b33fe1db3d344bcb3193d44b1851c9e</uuid>
+                            <name>Rota {#ROTA} (BEST)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-best,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>30d</trends>
+                            <value_type>FLOAT</value_type>
+                            <units>ms</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>56db722f434340d181c37872f5fe4666</uuid>
+                            <name>Rota {#ROTA}  (IP)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-ip,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>55c08b76fb7c46f49c0dfc2e9d5aeaac</uuid>
+                            <name>Rota {#ROTA} (LAST)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-last,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>30d</trends>
+                            <value_type>FLOAT</value_type>
+                            <units>ms</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>e9e37c9c057149aab179a4f90c375178</uuid>
+                            <name>Rota {#ROTA} (LOSS)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-loss,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>30d</trends>
+                            <value_type>FLOAT</value_type>
+                            <units>%</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>e9a4d30447ed440d8427693aa4b6b22c</uuid>
+                            <name>Rota {#ROTA} (SNT)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-snt,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>30d</trends>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>7e94de992e704bfdb06478257a8f9f21</uuid>
+                            <name>Rota {#ROTA} (STDEV)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-stdev,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>30d</trends>
+                            <value_type>FLOAT</value_type>
+                            <units>ms</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>65caa28ba50b45119e43c5e33c2b166b</uuid>
+                            <name>Rota {#ROTA} (WRST)</name>
+                            <type>EXTERNAL</type>
+                            <key>zbx_mtr.sh[-wrst,{HOST.HOST},{#ROTA}]</key>
+                            <history>7d</history>
+                            <trends>30d</trends>
+                            <value_type>FLOAT</value_type>
+                            <units>ms</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ROTA {#ROTA}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$DESTINO}</macro>
+                    <value>google.com.br</value>
+                </macro>
+                <macro>
+                    <macro>{$HOSTID}</macro>
+                    <value>00000</value>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+</zabbix_export>
